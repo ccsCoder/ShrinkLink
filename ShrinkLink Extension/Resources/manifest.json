@@ -35,5 +35,9 @@
         }
     },
 
-    "permissions": [ ]
+    "permissions": [
+      "tabs",
+      "clipboardWrite",
+      "https://shrtlnk.dev/api/v2/link",
+    ]
 }

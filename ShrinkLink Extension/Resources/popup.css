@@ -1,15 +1,59 @@
 :root {
-    color-scheme: light dark;
+  color-scheme: light dark;
 }
 
 body {
-    width: 100px;
-    padding: 10px;
-
-    font-family: system-ui;
-    text-align: center;
+  font-size: 16px;
+  font-family: sans-serif;
+  min-height: 200px;
+  padding: 20px;
+  gap: 20px;
+  display: grid;
+  grid-template-rows: auto auto auto; /* 3 rows */
 }
 
-@media (prefers-color-scheme: dark) {
-    /* Dark Mode styles go here. */
+h1 {
+  grid-row: 1;
+  justify-self: start;
+}
+
+input[type="text"] {
+  grid-row: 2;
+  grid-column: 1/-1;
+  height: 40px;
+  font-size: 0.8rem;
+  border: 1px solid orange;
+  border-radius: 5px;
+  color: white;
+}
+
+button {
+  grid-row: 3;
+  justify-self: center;
+  border: none;
+  height: 40px;
+  min-width: 300px;
+  padding: 10px;
+  background-color: #0a84ff;
+  color: white;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+button:hover,
+button:focus {
+  filter: brightness(0.9);
+}
+
+footer {
+  color: lightgray;
+  width: 100%;
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+@media only screen and (min-device-width: 768px) {
+  body {
+    min-width: 400px;
+  }
 }

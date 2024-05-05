@@ -1,6 +1,20 @@
 browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
-    console.log("Received request: ", request);
+  debugger;
+  console.log("Received request: ", request);
+  const { action, data } = request;
 
-    if (request.greeting === "hello")
-        sendResponse({ farewell: "goodbye" });
+  switch (action) {
+    case "CHECK_IF_SHORTENED":
+      sendResponse({
+        shortURL: localStorage.getItem(request.data),
+      });
+      break;
+    case "SAVE_SHORTENED_URL":
+      const encodedUrl = btoa(data.originalURL);
+      localStorage.setItem(encodedUrl, data.shortenedURL);
+      break;
+
+    default:
+      console.log("Incorrect Action Specified...");
+  }
 });
